@@ -46,7 +46,7 @@ pipeline {
 	            }
 	        }
 	         // Test Stages
-	        stage('Test') {
+	        stage('Perform Tests') {
 	            steps {
 	                echo 'Testing the workflow...'
 			UiPathTest (
