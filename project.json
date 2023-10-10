@@ -13,7 +13,7 @@
   "entitiesStores": [],
   "schemaVersion": "4.0",
   "studioVersion": "23.4.0.0",
-  "projectVersion": "1.0.1",
+  "projectVersion": "1.0.150653708",
   "runtimeOptions": {
     "autoDispose": false,
     "netFrameworkLazyLoading": false,
@@ -42,7 +42,14 @@
     "processOptions": {
       "ignoredFiles": []
     },
-    "fileInfoCollection": [],
+    "fileInfoCollection": [
+      {
+        "editingStatus": "Publishable",
+        "testCaseId": "b7f3deba-3bb3-4b5a-8e18-289c76a00e2a",
+        "testCaseType": "TestCase",
+        "fileName": "Policy_Holder.xaml"
+      }
+    ],
     "modernBehavior": true
   },
   "expressionLanguage": "CSharp",
