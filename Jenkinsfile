@@ -8,9 +8,9 @@ pipeline {
 	        MINOR = '0'
 	        //Orchestrator Services
 	        UIPATH_ORCH_URL = "https://cloud.uipath.com/"
-	        UIPATH_ORCH_LOGICAL_NAME = "anupaminc"
-	        UIPATH_ORCH_TENANT_NAME = "Descriptify"
-	        UIPATH_ORCH_FOLDER_NAME = "Default"
+	        UIPATH_ORCH_LOGICAL_NAME = "keymgtgrp"
+	        UIPATH_ORCH_TENANT_NAME = "KeyManagementGroupUSDefault"
+	        UIPATH_ORCH_FOLDER_NAME = "Shared"
 	    }
 	
 
@@ -58,7 +58,7 @@ pipeline {
 	            steps {
 	                echo "Run ${BRANCH_NAME} to UAT "
 	                UiPathRunJob (
-                        credentials: UserPass('825c83c9-9a14-44eb-883a-af54f8078af0'),
+                        credentials: UserPass('4Y1QNQc_5cmGI19WbkMgW3yr7L6RBVyNzGSYcl6h0ALG7'),
                         failWhenJobFails: true,
 	                folderName: 'Shared',
 	                orchestratorAddress: "${UIPATH_ORCH_URL}",
@@ -73,7 +73,7 @@ pipeline {
 
 	        )
                 UiPathRunJob (
-                        credentials: UserPass('825c83c9-9a14-44eb-883a-af54f8078af0'),
+                        credentials: UserPass('4Y1QNQc_5cmGI19WbkMgW3yr7L6RBVyNzGSYcl6h0ALG7'),
                         failWhenJobFails: true,
 	                folderName: 'Shared',
 	                orchestratorAddress: "${UIPATH_ORCH_URL}",
