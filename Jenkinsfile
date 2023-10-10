@@ -51,38 +51,36 @@ pipeline {
 	                echo 'Testing..the workflow...'
 	            }
 	        }
-	
-
-	         // Deploy Stages
-	        stage('Deploy to UAT') {
-	            steps {
-	                echo "Deploying ${BRANCH_NAME} to UAT "
-	                UiPathDeploy (
-	                packagePath: "Output\\${env.BUILD_NUMBER}",
-	                orchestratorAddress: "${UIPATH_ORCH_URL}",
-	                orchestratorTenant: "${UIPATH_ORCH_TENANT_NAME}",
-	                folderName: "${UIPATH_ORCH_FOLDER_NAME}",
-	                environments: 'Shared',
-	                //credentials: [$class: 'UserPassAuthenticationEntry', credentialsId: 'APIUserKey']
-	                credentials: Token(accountName: "${UIPATH_ORCH_LOGICAL_NAME}", credentialsId: 'APIUserKey'), 
-					traceLevel: 'None',
-					entryPointPaths: 'Main.xaml'
-	
-
-	        )
-	            }
-	        }
-	
-
-	
-
-	         // Deploy to Production Step
-	        stage('Deploy to Production') {
-	            steps {
-	                echo 'Deploy to Production'
-	                }
-	            }
-	    }
+	         // Run Stages
+                stage ('Build') {
+                UiPathRunJob(
+                        credentials: UserPass('825c83c9-9a14-44eb-883a-af54f8078af0'),
+                        failWhenJobFails: true,
+                        folderName: 'Shared',
+                        orchestratorAddress: 'https://cloud.uipath.com/',
+                        orchestratorTenant: 'KeyManagementGroupUSDefault',
+                        parametersFilePath: '',
+                        priority: 'Low',
+                        processName: 'ProcessA_EnvB',
+                        resultFilePath: 'TEST-com.qa.testcases.TestAddExposuresCommercialBuilding.xml',
+                        strategy: Dynamically(jobsCount: 1, machine: 'TestMachine', user: 'TestUser'), timeout: 3600, waitForJobCompletion: true, traceLoggingLevel:   'None'
+            )
+            UiPathRunJob(
+                    credentials: UserPass('825c83c9-9a14-44eb-883a-af54f8078af0'),
+                    failWhenJobFails: true,
+                    folderName: 'Shared',
+                    orchestratorAddress: 'https://cloud.uipath.com/',
+                    orchestratorTenant: 'KeyManagementGroupUSDefault',
+                    parametersFilePath: '',
+                    priority: 'Low',
+                    processName: 'ProcessA_EnvB',
+                    resultFilePath: 'output.json',
+                    strategy: Robot('robot1,robot2'),
+                    timeout: 1800,
+                    waitForJobCompletion: false,
+                    traceLoggingLevel: 'None'
+         )
+     }
 	
 
 	    // Options
