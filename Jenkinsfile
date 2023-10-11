@@ -49,24 +49,9 @@
                         processName: 'UiPath_Jenkins',
                         resultFilePath: 'TEST-com.qa.testcases.TestAddExposuresCommercialBuilding.xml',
                         strategy: Dynamically(jobsCount: 1, machine: 'TestMachine', user: 'TestUser'), timeout: 3600, waitForJobCompletion: true, traceLevel:   'None'
-	
+	                    jobType: "Unattended"
 
 	        )
-                UiPathRunJob (
-                        credentials: UserPass('4Y1QNQc_5cmGI19WbkMgW3yr7L6RBVyNzGSYcl6h0ALG7'),
-                        failWhenJobFails: true,
-	                folderName: 'Shared',
-	                orchestratorAddress: "${UIPATH_ORCH_URL}",
-	                orchestratorTenant: "${UIPATH_ORCH_TENANT_NAME}",
-                        parametersFilePath: '',
-                        priority: 'Low',
-                        processName: 'UiPath_Jenkins',
-                        resultFilePath: 'TEST-com.qa.testcases.TestAddExposuresCommercialBuilding.xml',
-                        strategy: Robot('robot1,robot2'),
-                        timeout: 1800,
-                        waitForJobCompletion: false,
-                        traceLevel: 'None'
-                 )
 	            }
 	        }
 	
