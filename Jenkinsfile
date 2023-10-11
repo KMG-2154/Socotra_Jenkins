@@ -48,8 +48,8 @@
                         priority: 'Low',
                         processName: 'UiPath_Jenkins',
                         resultFilePath: 'TEST-com.qa.testcases.TestAddExposuresCommercialBuilding.xml',
-                        strategy: Dynamically(jobsCount: 1, machine: 'TestMachine', user: 'TestUser'), timeout: 3600, waitForJobCompletion: true, traceLevel:   'None'
-	                jobType: 'Unattended'
+                        strategy: Dynamically(jobsCount: 1, machine: 'TestMachine', user: 'TestUser'), timeout: 3600, waitForJobCompletion: true, traceLevel:   'None',
+	                    jobType: "Unattended"
 
 	        )
 	            }
