@@ -42,7 +42,7 @@
                         credentials: UserPass('4Y1QNQc_5cmGI19WbkMgW3yr7L6RBVyNzGSYcl6h0ALG7'),
                         failWhenJobFails: true,
 	                folderName: 'Shared',
-					jobType:["value":"0",$class:"com.uipath.uipathpackage.entries.job.UnattendedJobTypeEntry"],
+					jobType:Unattended(),
 	                orchestratorAddress: "${UIPATH_ORCH_URL}",
 	                orchestratorTenant: "${UIPATH_ORCH_TENANT_NAME}",
                         parametersFilePath: '',
