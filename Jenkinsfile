@@ -48,7 +48,7 @@
                         priority: 'Low',
                         processName: 'UiPath_Jenkins',
                         resultFilePath: 'TEST-com.qa.testcases.TestAddExposuresCommercialBuilding.xml',
-                        strategy: Dynamically(jobsCount: 1, machine: 'TestMachine', user: 'TestUser'), timeout: 3600, waitForJobCompletion: true, traceLoggingLevel:   'None'
+                        strategy: Dynamically(jobsCount: 1, machine: 'TestMachine', user: 'TestUser'), timeout: 3600, waitForJobCompletion: true, traceLevel:   'None'
 	
 
 	        )
@@ -65,7 +65,7 @@
                         strategy: Robot('robot1,robot2'),
                         timeout: 1800,
                         waitForJobCompletion: false,
-                        traceLoggingLevel: 'None'
+                        traceLevel: 'None'
                  )
 	            }
 	        }
