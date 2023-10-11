@@ -39,7 +39,7 @@
 	            steps {
 	                echo "Run ${BRANCH_NAME} to UAT "
 	                UiPathRunJob (
-                        credentials: UserPass('4Y1QNQc_5cmGI19WbkMgW3yr7L6RBVyNzGSYcl6h0ALG7'),
+                        credentials: UserPass('APIUserKey'),
                         failWhenJobFails: true,
 	                folderName: 'Shared',
 					jobType:Unattended(),
