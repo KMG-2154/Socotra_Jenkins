@@ -1,4 +1,6 @@
-pipeline {
+
+	
+	pipeline {
 	    agent any
 	
 
@@ -45,23 +47,6 @@ pipeline {
 	        )
 	            }
 	        }
-	         // Test Stages
-	        stage('Perform Tests') {
-	            steps {
-	                echo 'Testing the workflow...'
-			UiPathTest (
-			testTarget: [$class: 'TestSetEntry', testSet: "Jenkins Integrated UiPath Test Set for Socotra"],
-			orchestratorAddress: "${UIPATH_ORCH_URL}",
-			orchestratorTenant: "${UIPATH_ORCH_TENANT_NAME}",
-			folderName: "${UIPATH_ORCH_FOLDER_NAME}",
-			timeout: 10000,
-			traceLevel: 'None',
-			testResultsOutputPath: "result.xml",
-			//credentials: [$class: 'UserPassAuthenticationEntry', credentialsId: "credentialsId"]
-			credentials: Token(accountName: "${UIPATH_ORCH_LOGICAL_NAME}", credentialsId: 'APIUserKey'),
-			parametersFilePath: ''
-	            }
-	        }
 	
 
 	         // Run Stages
@@ -69,12 +54,33 @@ pipeline {
 	            steps {
 	                echo "Run ${BRANCH_NAME} to UAT "
 	                UiPathRunJob (
-                        UiPathRunJob credentials: ExternalApp(accountForApp: '', applicationId: '', applicationScope: '', applicationSecret: 'APIUserKey', identityUrl: ''), failWhenJobFails: true, folderName: 'Shared', jobType: Test(), orchestratorAddress: 'https://cloud.uipath.com/', orchestratorTenant: 'KeyManagementGroupUSDefault', parametersFilePath: '"C:\\Users\\User\\Documents\\UiPath\\Socotra_Jenkins\\TEST-com.qa.testcases.TestAddExposuresCommercialBuilding.xml"', priority: 'Low', processName: 'Socotra_Jenkins_Tests', resultFilePath: 'result.xml', strategy: Robot('Robot'), traceLevel: 'Information', waitForJobCompletion: true
+                        credentials: UserPass('4Y1QNQc_5cmGI19WbkMgW3yr7L6RBVyNzGSYcl6h0ALG7'),
+                        failWhenJobFails: true,
+	                folderName: 'Shared',
+	                orchestratorAddress: "${UIPATH_ORCH_URL}",
+	                orchestratorTenant: "${UIPATH_ORCH_TENANT_NAME}",
+                        parametersFilePath: '',
+                        priority: 'Low',
+                        processName: 'UiPath_Jenkins',
+                        resultFilePath: 'TEST-com.qa.testcases.TestAddExposuresCommercialBuilding.xml',
+                        strategy: Dynamically(jobsCount: 1, machine: 'TestMachine', user: 'TestUser'), timeout: 3600, waitForJobCompletion: true, traceLoggingLevel:   'None'
 	
 
 	        )
                 UiPathRunJob (
-                        UiPathRunJob credentials: ExternalApp(accountForApp: '', applicationId: '', applicationScope: '', applicationSecret: 'APIUserKey', identityUrl: ''), failWhenJobFails: true, folderName: 'Shared', jobType: Test(), orchestratorAddress: 'https://cloud.uipath.com/', orchestratorTenant: 'KeyManagementGroupUSDefault', parametersFilePath: '"C:\\Users\\User\\Documents\\UiPath\\Socotra_Jenkins\\TEST-com.qa.testcases.TestAddExposuresCommercialBuilding.xml"', priority: 'Low', processName: 'Socotra_Jenkins_Tests', resultFilePath: 'result.xml', strategy: Robot('Robot'), traceLevel: 'Information', waitForJobCompletion: true
+                        credentials: UserPass('4Y1QNQc_5cmGI19WbkMgW3yr7L6RBVyNzGSYcl6h0ALG7'),
+                        failWhenJobFails: true,
+	                folderName: 'Shared',
+	                orchestratorAddress: "${UIPATH_ORCH_URL}",
+	                orchestratorTenant: "${UIPATH_ORCH_TENANT_NAME}",
+                        parametersFilePath: '',
+                        priority: 'Low',
+                        processName: 'UiPath_Jenkins',
+                        resultFilePath: 'TEST-com.qa.testcases.TestAddExposuresCommercialBuilding.xml',
+                        strategy: Robot('robot1,robot2'),
+                        timeout: 1800,
+                        waitForJobCompletion: false,
+                        traceLoggingLevel: 'None'
                  )
 	            }
 	        }
