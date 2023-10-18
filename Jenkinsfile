@@ -39,7 +39,8 @@
 	            steps {
 	                echo "Run ${BRANCH_NAME} to UAT "
 	                UiPathRunJob (
-                        credentials: UserPass('APIUserKey'),
+                        credentials: Token(accountName: "${UIPATH_ORCH_LOGICAL_NAME}", credentialsId: 'APIUserKey'),
+                        
                         failWhenJobFails: true,
 	                folderName: 'Shared',
 					jobType:Unattended(),
