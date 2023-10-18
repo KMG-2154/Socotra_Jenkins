@@ -48,7 +48,7 @@
 	                orchestratorTenant: "${UIPATH_ORCH_TENANT_NAME}",
                         parametersFilePath: '',
                         priority: 'Low',
-                        processName: 'UiPath_Jenkins',
+                        processName: 'Socotra_Jenkins_Tests',
                         resultFilePath: 'TEST-com.qa.testcases.TestAddExposuresCommercialBuilding.xml',
                         strategy: Dynamically(jobsCount: 1), timeout: 3600, waitForJobCompletion: true, traceLevel:   'None'
 	                    
