@@ -19,6 +19,24 @@
       "ArgumentsSectionElementsOrder": [],
       "ConstantsSectionElementsOrder": [],
       "AddedNamespaces": null
+    },
+    {
+      "Path": "Policy_Holder.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": [
+        "in_row",
+        "in_location",
+        "in_NewApplicationRow",
+        "in_PolicyDetailsRow",
+        "in_ExposureRow",
+        "in_AdditionalCoveragesRow",
+        "in_FirePerilRow",
+        "in_OtherCoveragesRow",
+        "in_LockPriceRow"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
     }
   ]
 }
