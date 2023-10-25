@@ -49,7 +49,7 @@
                         parametersFilePath: '',
                         priority: 'Low',
                         processName: 'Socotra_Jenkins_Automation',
-                        resultFilePath: '',
+                        resultFilePath: 'TEST-com.qa.testcases.TestAddExposuresCommercialBuilding.xml',
                         strategy: Dynamically(jobsCount: 1), timeout: 3600, waitForJobCompletion: true, traceLevel:   'None'
 	                    
 
