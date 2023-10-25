@@ -48,7 +48,7 @@
 	                orchestratorTenant: "${UIPATH_ORCH_TENANT_NAME}",
                         parametersFilePath: '',
                         priority: 'Low',
-                        processName: 'Socotra-Create-Application',
+                        processName: 'Socotra_Jenkins_Automation',
                         resultFilePath: '',
                         strategy: Dynamically(jobsCount: 1), timeout: 3600, waitForJobCompletion: true, traceLevel:   'None'
 	                    
