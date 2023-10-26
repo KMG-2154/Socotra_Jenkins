@@ -57,8 +57,10 @@
 	            }
 	        }
 stage('Integration') {
+steps{
+ 
   junit 'TEST-com.qa.testcases.TestAddExposuresCommercialBuilding.xml'
-}
+}}
 	
 
 	
